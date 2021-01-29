@@ -10,10 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import warnings
 from pathlib import Path
-
-from django.core.exceptions import ImproperlyConfigured
 
 
 def get_env_variable(var_name):
@@ -22,9 +19,9 @@ def get_env_variable(var_name):
     except KeyError:
         error_msg = "Set the {} env variable".format(var_name)
         if DEBUG:
-            warnings.warn(error_msg)
+            Warning.warn(error_msg)
         else:
-            raise ImproperlyConfigured(error_msg)
+            raise NotImplementedError(error_msg)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
